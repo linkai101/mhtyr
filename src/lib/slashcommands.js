@@ -17,10 +17,15 @@ module.exports = {
     const guild = client.guilds.cache.get(config.devGuild);
     let commands = guild.commands;
 
-    // PING
-    commands?.create(require('../slashcommands/ping').info)
-    // ECHO
-    commands?.create(require('../slashcommands/echo').info)
+    commands?.create(require('../slashcommands/play').info);
+    commands?.create(require('../slashcommands/skip').info);
+    commands?.create(require('../slashcommands/stop').info);
+    commands?.create(require('../slashcommands/nowplaying').info);
+    commands?.create(require('../slashcommands/queue').info);
+    //commands?.create(require('../slashcommands/loop').info);
+    //commands?.create(require('../slashcommands/pause').info);
+    //commands?.create(require('../slashcommands/resume').info);
+    //commands?.create(require('../slashcommands/volume').info);
 
     console.log("SLASHCOMMANDS> Dev guild commands posted.");
   },
@@ -65,7 +70,7 @@ module.exports = {
     client.on('interactionCreate', async (interaction) => {
       if (!interaction.isCommand()) return;
 
-      const { commandName } = interaction;
+      const { commandName, options } = interaction;
 
       for (cmd of commands) {
         if (cmd === commandName) {
@@ -78,7 +83,7 @@ module.exports = {
             });
           }
 
-          props.run(client, interaction);
+          props.run(client, interaction, options);
         }
       }
     });
