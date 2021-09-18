@@ -1,0 +1,15 @@
+{
+  "prefix": "!",
+  "devGuild": "840328866685648946",
+  "presence": {
+    "activities": [
+      {
+        "name": "🎵",
+        "type": "PLAYING",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      }
+    ],
+    "status": "dnd",
+    "afk": false
+  }
+}
