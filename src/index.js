@@ -27,9 +27,9 @@ client.player = player;
 
 client.on("ready", async () => {
   //await slashcommand.clear(client);
-  //await slashcommands.post(client);
-  //await slashcommands.clearDev(client);
-  await slashcommands.postDev(client);
+  await slashcommands.post(client);
+  await slashcommands.clearDev(client);
+  //await slashcommands.postDev(client);
   await slashcommands.watch(client);
 
   await presence.set(client);
