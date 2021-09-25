@@ -4,13 +4,18 @@ const Discord = require('discord.js');
 
 module.exports = {
   info: {
-    name: "skip",
-    description: "Skips the song that is currently playing.",
+    name: "disconnect",
+    description: "Disconnects the bot and clears queue.",
   },
   run: async function(client, interaction) {
     await interaction.deferReply();
 
-    // If user is not in vc
+    // If user/bot is not in vc
+    if (!interaction.guild.me.voice.channelId)
+    return interaction.editReply({
+      content: `❌ **I am not connected to a voice channel**`,
+      ephemeral: true,
+    });
     if (!interaction.member.voice.channel)
       return interaction.editReply({
         content: `❌ **You are not connected to a voice channel**`,
@@ -23,14 +28,12 @@ module.exports = {
       });
 
     const queue = client.player.getQueue(interaction.guildId);
-    if (!queue) return await interaction.editReply({
-      content: `❌ **There are no songs to skip**`
-    })
 
-    await queue.skip();
-    
+    await queue.stop();
+
     return await interaction.editReply({ 
-      content: '⏩ ***Skipped*** 👍'
+      content: '📭 **Successfully disconnected**'
     }); 
   }
+    
 }

@@ -10,13 +10,16 @@ module.exports = {
 
     commands?.create(require('../slashcommands/play').info);
     commands?.create(require('../slashcommands/skip').info);
-    commands?.create(require('../slashcommands/stop').info);
     commands?.create(require('../slashcommands/nowplaying').info);
     commands?.create(require('../slashcommands/queue').info);
     //commands?.create(require('../slashcommands/loop').info);
+    //commands?.create(require('../slashcommands/loopqueue').info);
+    //commands?.create(require('../slashcommands/autoplay').info);
     //commands?.create(require('../slashcommands/pause').info);
     //commands?.create(require('../slashcommands/resume').info);
     //commands?.create(require('../slashcommands/volume').info);
+    //commands?.create(require('../slashcommands/lyrics').info);
+    commands?.create(require('../slashcommands/disconnect').info);
 
     console.log("SLASHCOMMANDS> Global commands posted.");
   },
@@ -26,13 +29,16 @@ module.exports = {
 
     commands?.create(require('../slashcommands/play').info);
     commands?.create(require('../slashcommands/skip').info);
-    commands?.create(require('../slashcommands/stop').info);
     commands?.create(require('../slashcommands/nowplaying').info);
     commands?.create(require('../slashcommands/queue').info);
     //commands?.create(require('../slashcommands/loop').info);
+    //commands?.create(require('../slashcommands/loopqueue').info);
+    //commands?.create(require('../slashcommands/autoplay').info);
     //commands?.create(require('../slashcommands/pause').info);
     //commands?.create(require('../slashcommands/resume').info);
     //commands?.create(require('../slashcommands/volume').info);
+    //commands?.create(require('../slashcommands/lyrics').info);
+    commands?.create(require('../slashcommands/disconnect').info);
 
     console.log("SLASHCOMMANDS> Dev guild commands posted.");
   },

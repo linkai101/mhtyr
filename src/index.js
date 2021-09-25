@@ -1,8 +1,11 @@
 require('dotenv').config();
 
+//https://github.com/DevSnowflake/discord-player-extractors
+
 const config = require("../config.json");
 const presence = require('./lib/presence');
 const slashcommands = require('./lib/slashcommands');
+const musicplayer = require('./lib/player');
 
 const Discord = require("discord.js");
 const client = new Discord.Client({
@@ -18,22 +21,21 @@ const client = new Discord.Client({
 });
 
 // Initialize music player
-const { Player } = require("discord-music-player");
-const player = new Player(client, {
-  deafenOnJoin: true,
-  timeout: 180000, // 3min timeout
-});
+const { Player } = require("discord-player");
+const player = new Player(client);
 client.player = player;
 
 client.on("ready", async () => {
   //await slashcommand.clear(client);
   //await slashcommands.post(client);
-  await slashcommands.clearDev(client);
+  //await slashcommands.clearDev(client);
   await slashcommands.postDev(client);
   await slashcommands.watch(client);
 
   await presence.set(client);
 
+  await musicplayer.watch(client);
+  
   console.log(`${client.user.username} is online on ${client.guilds.cache.size} servers!`);
 });
 

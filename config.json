@@ -4,12 +4,12 @@
   "presence": {
     "activities": [
       {
-        "name": "🎵",
-        "type": "PLAYING",
+        "name": "/play",
+        "type": "LISTENING",
         "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       }
     ],
-    "status": "dnd",
+    "status": "online",
     "afk": false
   }
 }
